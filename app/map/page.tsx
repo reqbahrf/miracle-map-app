@@ -1,8 +1,13 @@
+'use client';
+import MapView from '../components/MapView';
+import SearchBar from '../components/SeachBar';
+
 export default function Home() {
   return (
     <div className='w-full h-dvh'>
       <main className='w-full h-full overflow-hidden relative'>
-        <h1>Home</h1>
+        <MapView />
+        <SearchBar />
       </main>
     </div>
   );
