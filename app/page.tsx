@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import icon from './icon1.png';
+import Link from 'next/link';
 import { RiCompass3Line } from '@remixicon/react';
 export default function Home() {
   return (
@@ -46,12 +47,18 @@ export default function Home() {
 
             {/* Auth Buttons */}
             <div className='flex items-center space-x-4'>
-              <button className='text-white hover:text-gray-300 px-3 py-2 text-sm font-medium'>
+              <Link
+                href='/auth/login'
+                className='text-white hover:text-gray-300 px-3 py-2 text-sm font-medium'
+              >
                 Log In
-              </button>
-              <button className='bg-accent hover:bg-yellow-600 text-white px-4 py-2 rounded-sm text-sm font-medium transition-colors'>
+              </Link>
+              <Link
+                href='/auth/signup'
+                className='bg-accent hover:bg-yellow-600 text-white px-4 py-2 rounded-sm text-sm font-medium transition-colors'
+              >
                 Sign Up
-              </button>
+              </Link>
             </div>
           </div>
         </div>
