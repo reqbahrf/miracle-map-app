@@ -32,7 +32,7 @@ export default function MapView() {
       initialViewState={viewState}
       onMove={(evt) => setViewState(evt.viewState)}
       style={{ width: '100%', height: '100%' }}
-      mapStyle='https://tiles.openfreemap.org/styles/liberty'
+      mapStyle='/style/simple-dark-miracle-map.json'
     />
   );
 }
