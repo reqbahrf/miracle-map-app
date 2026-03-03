@@ -10,11 +10,11 @@ export default function SearchBar() {
   };
 
   return (
-    <div className='absolute top-4 left-1/2 transform -translate-x-1/2 z-50 w-full md:max-w-[400px]'>
+    <div className='w-3/4 md:min-w-[500px] md:max-w-[500px]'>
       {/* Glassmorphism container */}
       <div
         className={`
-            relative overflow-hidden rounded-2xl border border-white/20 
+            relative overflow-hidden rounded-2xl border border-white/20
             bg-linear-to-br from-white/10 to-white/5 backdrop-blur-xl
             shadow-2xl transition-all duration-300 ease-out
             ${
