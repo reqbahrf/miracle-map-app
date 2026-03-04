@@ -1,8 +1,56 @@
 import Image from 'next/image';
 import icon from './icon1.png';
 import Link from 'next/link';
-import { RiCompass3Line } from '@remixicon/react';
+import { RiCompass3Line, RiSunFill } from '@remixicon/react';
+import Step from './components/Step';
+import TestimonialCard from './components/TestimonialCard';
 export default function Home() {
+  const Steps = [
+    {
+      number: 1,
+      title: 'Find Location',
+      description:
+        'Pinpoint exactly where your miracle took place on our interactive map.',
+    },
+    {
+      number: 2,
+      title: 'Tell the Story',
+      description:
+        'Share the details of what happened. Add photos if you have them.',
+    },
+    {
+      number: 3,
+      title: 'Submit & Wait',
+      description:
+        'Our team reviews every submission to ensure community safety.',
+    },
+    {
+      number: 4,
+      title: 'Shine on Map',
+      description:
+        'Your story goes live, lighting up the globe and inspiring others.',
+    },
+  ];
+
+  const testimonials = [
+    {
+      profileImage:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuCUHwMORQOkCRPK5-0G8Chl6GrCvC6Ox4BvnKVV6tp1lndO3pRZkSBAcMCq7wKQf_yPZMTkvXeBb74Iqd9coFHiMR3JsmsTbM2GQIVCGl-iyPUQlM-l0weJ_6v4FfKQJBzly1iP_Eo9XZ6Bqx6swwPiSIiwFdpZex4woiSqxodixEemdhuzaFY3fdzG_4ZCnyB1qAfZxzmMmwu2fZdzQ34mR-ssA1dMX15cL8CnwkYdus4VRIMl3WtiE_8hMoTm4aoUJvWKspM3xI8',
+      name: 'Sarah M.',
+      location: 'New York, NY',
+      quote:
+        'Found my miracle story on the map and it gave me hope during my darkest days.',
+    },
+    {
+      profileImage:
+        'https://lh3.googleusercontent.com/aida-public/AB6AXuAmcWbB5_T6JylzISAmrSYdpelDkcVV--xY_inD4KSvK3AstgmH0P-ybxHkmIhvzOSkXB4-Xrol-7TAw3GgR4cZY6HZpWt5qnQWfvhBJeC9sbkUomFFd_k7o7OkXvOCjq_CUZ7KHEQH87BcCAiTTjTFttc5ldgmIdGl-kvjJZPw3Oj4HNmWerxKSGNAiIY4wgj05iuWwqjqLD-nMuBFWQIsOfRjXZMiEuQA2xIvOUYTcqY7FfZkA_u649DkID-kZglVAjjpgu-fr7A',
+      name: 'John D.',
+      location: 'Los Angeles, CA',
+      quote:
+        "Sharing my story of recovery was hesitant at first, but the outpouring of love from people in countries I've never visited was overwhelming. This platform is truly a light.",
+    },
+  ];
+
   return (
     <>
       <header className='fixed top-0 left-0 right-0 z-50 h-[9dvh] bg-primary text-white'>
@@ -108,6 +156,100 @@ export default function Home() {
           </div>
         </main>
       </div>
+      <section className='bg-primary py-20 px-6 lg:px-10'>
+        <div className='mx-auto max-w-7xl'>
+          <div className='mb-16 text-center'>
+            <span className='text-sm font-bold uppercase tracking-widest text-gold-500'>
+              The Process
+            </span>
+            <h2 className='mt-2 font-serif text-3xl font-bold text-white md:text-4xl'>
+              How to Share Your Miracle
+            </h2>
+          </div>
+          <div className='relative grid grid-cols-1 gap-12 md:grid-cols-4'>
+            <div className='absolute top-8 left-0 hidden w-full md:block px-12'>
+              <div className='h-0.5 w-full bg-primary'></div>
+            </div>
+            {Steps.map((step) => (
+              <Step
+                key={step.number}
+                {...step}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* <!-- Testimonials Section --> */}
+      <section className='relative overflow-hidden bg-primary py-24 px-6 lg:px-10'>
+        <div className='absolute top-0 right-0 -mt-20 -mr-20 h-96 w-96 rounded-full bg-gold-500/5 blur-3xl'></div>
+        <div className='absolute bottom-0 left-0 -mb-20 -ml-20 h-96 w-96 rounded-full bg-navy-900/10 dark:bg-black/20 blur-3xl'></div>
+        <div className='relative z-10 mx-auto max-w-7xl'>
+          <div className='mb-12 text-center'>
+            <h2 className='font-serif text-3xl font-bold text-navy-900 dark:text-white'>
+              Voices from the Community
+            </h2>
+          </div>
+          <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12'>
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                {...testimonial}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      <footer className='bg-primary px-6 py-24 text-center text-neutral lg:px-10 border-t border-primary/80'>
+        <div className='mx-auto max-w-3xl'>
+          <div className='mb-6 flex justify-center'>
+            <RiSunFill className='text-[64px] text-accent animate-pulse' />
+          </div>
+          <h2 className='font-serif text-4xl font-bold leading-tight sm:text-5xl'>
+            Don&apos;t Keep Your Miracle to Yourself
+          </h2>
+          <p className='mx-auto mt-6 max-w-xl text-lg text-slate-300'>
+            Your story has the power to spark faith in someone else&apos;s life.
+            Join the global map of hope today.
+          </p>
+          <div className='mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row'>
+            <button className='flex h-14 min-w-[200px] cursor-pointer items-center justify-center rounded-lg bg-accent px-8 text-base font-bold text-white shadow-[0_0_25px_rgba(184,134,11,0.4)] transition-transform hover:scale-105 hover:bg-accent/90'>
+              Share Your Story Now
+            </button>
+            <button className='flex h-14 min-w-[200px] cursor-pointer items-center justify-center rounded-lg border border-accent/50 bg-transparent px-8 text-base font-bold text-white transition-all hover:bg-accent/10 hover:border-accent'>
+              Explore the Map
+            </button>
+          </div>
+          <div className='mt-20 flex flex-wrap justify-center gap-8 text-sm text-slate-400'>
+            <a
+              className='hover:text-white'
+              href='#'
+            >
+              Privacy Policy
+            </a>
+            <a
+              className='hover:text-white'
+              href='#'
+            >
+              Terms of Service
+            </a>
+            <a
+              className='hover:text-white'
+              href='#'
+            >
+              Community Guidelines
+            </a>
+            <a
+              className='hover:text-white'
+              href='#'
+            >
+              Contact Support
+            </a>
+          </div>
+          <div className='mt-8 text-xs text-neutral-600'>
+            © 2023 Miracle Map. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
