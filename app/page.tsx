@@ -1,10 +1,44 @@
 import Image from 'next/image';
 import icon from './icon1.png';
 import Link from 'next/link';
-import { RiCompass3Line, RiSunFill } from '@remixicon/react';
+import {
+  RiCompass3Line,
+  RiSunFill,
+  RiHeartPulseFill,
+  RiShieldCheckFill,
+  RiMapPinFill,
+  RiTeamFill,
+} from '@remixicon/react';
 import Step from './components/Step';
 import TestimonialCard from './components/TestimonialCard';
+import ValuePropositionCard from './components/ValuePropositionCard';
 export default function Home() {
+  const features = [
+    {
+      icon: <RiHeartPulseFill />,
+      title: 'Spark Hope',
+      description:
+        'Read uplifting stories that remind you you are not alone in your journey.',
+    },
+    {
+      icon: <RiShieldCheckFill />,
+      title: 'Verified & Meaningful',
+      description:
+        'Every story is reviewed to ensure authenticity, respect, and truth.',
+    },
+    {
+      icon: <RiMapPinFill />,
+      title: 'Pinpoint Location',
+      description:
+        'See exactly where miracles are happening geographically around the globe.',
+    },
+    {
+      icon: <RiTeamFill />,
+      title: 'Community Connection',
+      description:
+        'Connect with others who have experienced similar divine moments.',
+    },
+  ];
   const Steps = [
     {
       number: 1,
@@ -156,6 +190,18 @@ export default function Home() {
           </div>
         </main>
       </div>
+      <section className='relative z-20 -mt-10 px-6 pb-20 pt-10 lg:px-10 bg-primary'>
+        <div className='mx-auto max-w-7xl'>
+          <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+            {features.map((item) => (
+              <ValuePropositionCard
+                key={item.title}
+                {...item}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <section className='bg-primary py-20 px-6 lg:px-10'>
         <div className='mx-auto max-w-7xl'>
           <div className='mb-16 text-center'>
